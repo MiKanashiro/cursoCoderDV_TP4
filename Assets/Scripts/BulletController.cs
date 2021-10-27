@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BulletController : MonoBehaviour
 {
-    public float speedBullet = 0.2f;
+    public float speedBullet = 5f;
     public Vector3 direction = Vector3.right;
     public float damageBullet = 0.1f;
-    // Start is called before the first frame update
+
+    public float durationTime = 2f;
+
     void Start()
     {
 
@@ -17,5 +19,17 @@ public class BulletController : MonoBehaviour
     void Update()
     {
         transform.Translate(speedBullet * Time.deltaTime * direction);
+
+        durationTime -= Time.deltaTime;
+
+        if (durationTime < 0)
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            transform.localScale = 2 * transform.localScale;
+        }
     }
 }

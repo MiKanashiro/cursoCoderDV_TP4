@@ -5,33 +5,21 @@ using UnityEngine;
 public class Canon : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    public float delayTime = 1.5f;
-    public float durationTime = 2f;
+    //public float intervalTime = 1.5f;
 
     void Start()
     {
-
+        
     }
 
 
     void Update()
     {
-        Shoot();
-        InvokeRepeating("Shoot", durationTime, delayTime);
 
-
-        durationTime -= Time.deltaTime;
-
-        if (durationTime < 0)
+        if (Input.GetKeyDown(KeyCode.K))
         {
-          Destroy(bulletPrefab);
+            Shoot();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bulletPrefab.transform.localScale = 2 * bulletPrefab.transform.localScale;
-        }
-
     }
 
     public void Shoot()
