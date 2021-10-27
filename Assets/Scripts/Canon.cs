@@ -5,7 +5,7 @@ using UnityEngine;
 public class Canon : MonoBehaviour
 {
     public GameObject bulletPrefab;
-    //public float intervalTime = 1.5f;
+
 
     void Start()
     {
